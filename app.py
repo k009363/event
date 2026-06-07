@@ -60,13 +60,13 @@ def seed_app_settings():
         app_settings_col.insert_one({
             "footer_powered_by": "EventPro",
             "footer_contact": "+91 97421 35871",
-            "footer_email": "info@eventpro.com",
-            "footer_website": "https://www.eventpro.com",
+            "footer_email": "k009363@gmail.com",
+            "footer_website": "https://fevents.netlify.app/",
             "site_name": "EventPro",
             # Developer info
             "developer_name": "Your Developer Name",
-            "developer_url": "https://yourportfolio.com",
-            "developer_tagline": "Crafted with ❤️",
+            "developer_url": "https://karthiksoftwaresolution.netlify.app",
+            "developer_tagline": "❤️",
             # Social media
             "social_instagram": "",
             "social_facebook": "",

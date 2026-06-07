@@ -1,0 +1,7 @@
+venv/
+.env
+.env.example
+runtime.txt
+__pycache__/
+*.pyc
+*.pyo

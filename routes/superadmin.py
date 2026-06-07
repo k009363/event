@@ -195,10 +195,16 @@ def update_admin(admin_id):
     a_oid = ObjectId(admin_id) if ObjectId.is_valid(admin_id) else None
     data = request.get_json()
     updates = {}
-    VALID_PERMISSIONS = {"event_settings", "bookings", "reports"}
+    VALID_PERMISSIONS = {"dashboard", "event_settings", "bookings", "reports", "customers"}
     for f in ["name", "phone", "is_active"]:
         if f in data:
             updates[f] = data[f]
+    if "email" in data and data["email"]:
+        new_email = data["email"].strip().lower()
+        existing = users_col.find_one({"email": new_email, "_id": {"$ne": a_oid}})
+        if existing:
+            return jsonify({"error": "Email already in use by another account"}), 400
+        updates["email"] = new_email
     if "permissions" in data:
         updates["permissions"] = [p for p in data["permissions"] if p in VALID_PERMISSIONS]
 
